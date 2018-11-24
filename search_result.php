@@ -1,16 +1,3 @@
-<?php 
-  session_start(); 
-
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-?> 
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
-        <title>Admin Panel</title>
+        <title>Epatashala</title>
         <!-- Favicons-->
         <meta name="msapplication-TileColor" content="#FFFFFF">
         <link rel="icon" href="https://image.flaticon.com/icons/svg/1184/1184976.svg" sizes="32x32">
@@ -33,7 +20,7 @@
         <link href="style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
-            .text-primarycolor{color:#2BBBAD;}
+            .text-primarycolor{color:#59BD8B;}
             .back{ background-color: #59BD8B; }
         </style>
     </head>
@@ -47,7 +34,7 @@
                         </a>
                     </li>
                     <li  class="version">
-                        Epatashala Admin Dashboard
+                        Epatashala
                     </li>
                 </ul>
                 <li class="search">
@@ -56,14 +43,24 @@
                         <div class="search-results"></div>
                     </div>
                 </li>
-               <li class="bold"><a href="index.php" class="waves-effect waves-teal">Materials</a></li>
-                <li class="bold"><a href="project.php" class="waves-effect waves-teal">Projects</a></li>
-                <li class="bold"><a href="idea.php" class="waves-effect waves-teal">Ideas</a></li>
-                <li class="bold"><a href="know.php" class="waves-effect waves-teal">Learn New Things</a></li>
-                <li class="bold"><a href="sheets.php" class="waves-effect waves-teal">Cheat Sheets</a></li>
-                <li class="bold"><a href="messages.php" class="waves-effect waves-teal">Messages</a></li>
-      
-                 <li class="bold"><a href="index.php?logout='1'" style="color: red;">logout</a></li>
+                <li class="bold"><a href="materials.php" class="waves-effect waves-teal">Btech Materials</a></li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold active">
+                            <a class="collapsible-header waves-effect waves-teal">CSE Special</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="projects.php">Project Showcase</a></li>
+                                    <li><a href="cheatsheets.php">Project Ideas</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bold"><a href="collaboration.php" class="waves-effect waves-teal">Collaboration</a></li>
+                <li class="bold"><a href="curios.php" class="waves-effect waves-teal">Curious</a></li>
+                <li class="bold"><a href="contact.php" class="waves-effect waves-teal">Contact Us</a></li>
+
             </ul>
         </main>
         <!-- Sidebar BSA-->
@@ -82,94 +79,70 @@
             
         </script>
         <main>
-            <div class="card-panel center">
-                <span class="green-text text-darken-2">Add New Things</span>
-            </div>
-            <div class="container ">
-                <div class="row hoverable">
-                    <div class="col l8 s12 offset-l2">
-                        <div class="row ">
-                                                     
-                             <?php
-                            if(isset($_POST['name'])& !empty($_POST) ){
-
-       $name=$_POST['name'];
-      $description=$_POST['description'];
-  
-    $code=$_POST['code'];
-       require_once('connect.php'); 
-     
-
-       $sql = "INSERT INTO `learn`  VALUES ('','$name','$description','$code')";
-            
-    
-			$res = mysqli_query($conn, $sql);
-			if($res){
-                echo ' <div class="card-panel">
-    <span class="blue-text text-darken-2">Successfully Added</span>
-  </div>'
-;
-                 
-            }
-    else{
-			echo '<div class="card-panel">
-    <span class="red-text text-darken-2">Sorry Something Went Wrong</span>
-  </div>';
-		}
-   }  
-                            
-                            ?>
-                            <form  method='post'>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input type="text" name="name">
-                                        <label >Title</label>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <input type="text" name="description" >
-                                        <label > description</label>
-                                    </div>
-                                
-                                    <div class=" center input-field col s12">
-                                        <input type="submit" class="btn">
-                                    </div>
-                                </div>
-                            </form>
+            <div class="section no-pad-bot" id="index-banner">
+                <div class="container-fluid">
+                    <div class="row center">
+                        <div class="col s12 m10 offset-m1">
+                            <h1 class="header text-primarycolor ">Epatashala</h1>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                 <?php
-require_once('connect.php'); 
-$sql = "SELECT * FROM `learn` " ;
-$res = mysqli_query($conn, $sql);
-    ?>
-                <div id="highlight" class="section scrollspy">
-                    <h6 class="header center">Ideas List </h6>
-                    <div class="row">
-                        <div class="col s12">
-                            <table class="highlight stripped">
-                                <thead>
-                                    <tr>
-                                        <th>Title</th>
-                                        <th> description</th>
-                                        <th>Code</th>
-                                        <th>delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-    <?php     while ($r = mysqli_fetch_assoc($res)) { ?>
-                                    <tr>
-                                        <td><?php echo $r['name']; ?></td>
-                                        <td><?php echo $r['description']; ?></td>
-                                        <td><?php echo $r['code']; ?></td>
-                                        <td><a href="/epatashala/deletelearn.php?id=<?php echo $r['id']; ?>">Delete</a></td>
-                                    </tr>
-                 <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s3"><a class="active" href="#test1">CSE & IT</a></li>
+                            <li class="tab col s3"><a  href="#test2">ECE & EEE</a></li>
+                            <li class="tab col s3"><a href="#test3">MECH & CIVIL</a></li>
+                            <li class="tab col s3"><a href="#test4">Other</a></li>
+                        </ul>
+                    </div>
+                    <div id="test1" class="col s12">
+                        <ul class="collapsible popout">
+                            <li>
+                                <div class="collapsible-header">
+                                    <!--<i class="material-icons">filter_drama</i>--><img src="https://img.icons8.com/color/100/ubuntu.png " height="25px" width="25px">&acute;OS
+                                </div>
+                                <div class="collapsible-body center">
+                                    <div>
+                                        <h5>All Units(OS)</h5>
+                                        <a href="images/eye.png" target="_blank" onclick="M.toast({html: 'Thank You For Downloading'})" class="btn">Download<i class="material-icons right">file_download</i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header center">
+                                    <!--  <i class="material-icons">place</i>--><img src="https://sdtimes.com/wp-content/uploads/2018/03/jW4dnFtA_400x400.jpg" height='25px' width="25px;" >JAVA
+                                </div>
+                                <div class="collapsible-body center">
+                                    <div>
+                                        <h5>All Units(OS)</h5>
+                                        <a href="images/eye.png" target="_blank" onclick="M.toast({html: 'Thank You For Downloading'})" class="btn">Download<i class="material-icons right">file_download</i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header center">
+                                    <!--  <i class="material-icons">place</i>--><img src="images/statistics_icon.png" height='25px' width="25px;" >Software Engineering
+                                </div>
+                                <div class="collapsible-body center">
+                                    <div>
+                                        <h5>All Units(OS)</h5>
+                                        <a href="images/eye.png" target="_blank" onclick="M.toast({html: 'Thank You For Downloading'})" class="btn">Download<i class="material-icons right">file_download</i></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="test2" class="col s12">
+                        <h1 class="center">Not Available</h1>
+                    </div>
+                    <div id="test3" class="col s12">
+                        <h1 class="center">Not Available</h1>
+                    </div>
+                    <div id="test4" class="col s12">
+                        <h1 class="center">Not Available</h1>
                     </div>
                 </div>
             </div>
@@ -199,18 +172,6 @@ $res = mysqli_query($conn, $sql);
         <script src="js/search.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/init.js"></script>
-        <script>
-            $(document).ready(function(){
-            $('input.autocomplete').autocomplete({
-            data: {
-            "Environmental Studies": null,
-            "Computer Programming": null,
-            "Physics": 'https://placehold.it/250x250'
-            },
-            });
-            });
-            
-        </script>
         <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
             <a class="btn-floating btn-large #696B77">
             <i class="material-icons right">view_agenda</i>
