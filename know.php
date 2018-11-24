@@ -61,8 +61,8 @@
                 <li class="bold"><a href="idea.php" class="waves-effect waves-teal">Ideas</a></li>
                 <li class="bold"><a href="know.php" class="waves-effect waves-teal">Learn New Things</a></li>
                 <li class="bold"><a href="sheets.php" class="waves-effect waves-teal">Cheat Sheets</a></li>
-                <li class="bold"><a href="meassages.php" class="waves-effect waves-teal">Messages</a></li>
-                <li class="bold"><a href="links.php" class="waves-effect waves-teal">Links</a></li>
+                <li class="bold"><a href="messages.php" class="waves-effect waves-teal">Messages</a></li>
+      
                  <li class="bold"><a href="index.php?logout='1'" style="color: red;">logout</a></li>
             </ul>
         </main>
