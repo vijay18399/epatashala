@@ -1,8 +1,8 @@
-<?php include('server.php') ?>
+<?php include ('server.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registration system PHP and MySQL</title>
+  <title>epatashala</title>
   <style>
   button{
     background-color: #59BD8B;
@@ -20,19 +20,19 @@
         
         <div class="row">                
             <div class="iconmelon">
-          <img src='https://image.flaticon.com/icons/svg/1184/1184976.svg' height='175px' width='175px'>
+          <img src='../images/logo.png' height='155px' width='155px'>
             </div>
         </div>
         
         <div class="panel panel-default" >
             <div class="panel-heading">
-                <div class="panel-title text-center">Epatashala.com</div>
+                <div class="panel-title text-center">Epatashala Admin Portal</div>
             </div>     
 
             <div class="panel-body" >
 
                 <form method="post" action="login.php">
-                   <?php include('errors.php'); ?>
+                   <?php include ('errors.php'); ?>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input id="user" type="text" class="form-control" name="username" value="" placeholder="User">                                        

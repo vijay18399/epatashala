@@ -1,21 +1,3 @@
-<?php 
-  session_start(); 
-
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: login.php");
-  }
-
- 
-
-  
-
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,10 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
-        <title>Admin Panel</title>
+        <title>Epatashala</title>
         <!-- Favicons-->
         <meta name="msapplication-TileColor" content="#FFFFFF">
-        <link rel="icon" href="https://image.flaticon.com/icons/svg/1184/1184976.svg" sizes="32x32">
+        <link rel="icon" href="simages/logo.png" sizes="32x32">
         <!--  Android 5 Chrome Color-->
         <meta name="theme-color" content="#EE6E73">
         <!-- CSS-->
@@ -37,165 +19,126 @@
         <link href="css/icon.css" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
     <body>
-        <main>
+         <main>
             <div class="container"><a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a></div>
             <ul id="nav-mobile" class="sidenav sidenav-fixed">
                 <ul class="no-padding">
                     <li class="logo "><a id="logo-container" href="/" class="brand-logo">
-                        <img src="https://image.flaticon.com/icons/svg/1184/1184976.svg" height="95px" width="95px">
+                        <img src="images/logo.png" height="75px" width="75px">
                         </a>
                     </li>
                     <li  class="version">
-                        Epatashala Admin Dashboard
+                        Epatashala
                     </li>
                 </ul>
-                <li class="search">
-                    <div class="search-wrapper">
-                        <input id="search" placeholder="Search"><i class="material-icons">search</i>
-                        <div class="search-results"></div>
-                    </div>
+        <li class="search">
+                <h6 class="center text-white back menu">Menu</h6>
                 </li>
-                <li class="bold"><a href="index.php" class="waves-effect waves-teal">Materials</a></li>
-                <li class="bold"><a href="project.php" class="waves-effect waves-teal">Projects</a></li>
-                <li class="bold"><a href="idea.php" class="waves-effect waves-teal">Ideas</a></li>
-                <li class="bold"><a href="know.php" class="waves-effect waves-teal">Learn New Things</a></li>
-                <li class="bold"><a href="sheets.php" class="waves-effect waves-teal">Cheat Sheets</a></li>
-                <li class="bold"><a href="messages.php" class="waves-effect waves-teal">Messages</a></li>
-                
-                 <li class="bold"><a href="index.php?logout='1'" style="color: red;">logout</a></li>
-             
+                <li class="bold"><a href="materials.php" class="waves-effect waves-green">Btech Materials</a></li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold active">
+                            <a class="collapsible-header waves-effect waves-green">CSE Special</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="projects.php">Project Showcase</a></li>
+                                    <li><a href="ideas.php">Project Ideas</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bold"><a href="cheatsheets.php" class="waves-effect waves-green">Cheatsheets</a></li>
+                <li class="bold"><a href="collaboration.php" class="waves-effect waves-green">Collaboration</a></li>
+                <li class="bold"><a href="tech-bits.php" class="waves-effect waves-green">TechBits</a></li>
+                <li class="bold"><a href="contact.php" class="waves-effect waves-green">Contact Us</a></li>
+
             </ul>
         </main>
-
         <main>
-            <div class="card-panel center">
-                <span class="green-text text-darken-2">Add Mateials</span>
+            <div class="section no-pad-bot" id="index-banner">
+                <div class="container-fluid">
+                    <div class="row center">
+                        <div class="col s12 m10 offset-m1">
+                            <h1 class="header text-primarycolor ">Epatashala</h1>
+                        </div>
+                        <div class="col s12 m8 offset-m2">
+                            <h4 class='text-primarycolor'>Single click for tremendous amount of knowledge </h4>
+                        </div>
+                    </div>
+                    <div class="row center" >
+                        <a href="https://github.com/Dogfalo/materialize/blob/v1-dev/v1-upgrade-guide.md"  class="waves-effect #64b5f6 blue lighten-2 waves-light btn-large">Download Android App </a>
+                    </div>
+                    <br>
+                </div>
             </div>
-            <div class="container ">
-                <div class="row hoverable">
-                    <div class="col l8 s12 offset-l2">
-                        <div class="row ">
-                            <?php
-                            if(isset($_POST['name'])& !empty($_POST) ){
-
-       $subjectname=$_POST['subjectname'];
-      $name=$_POST['name'];
-    $url=$_POST['url'];
-    $category=$_POST['category'];
-    $tags=$_POST['tags'];
-       require_once('connect.php'); 
-
-       $sql = "INSERT INTO `uploads`  VALUES ('$url','$subjectname','$name','$category','$tags')";
- 
+            <section id="ao-vivo" class="container">
+                <div class="row">
+                    <div class="col m12 ">
+                        <h5 class="center">Materials for Various Engineering Stream</h5>
+                        <p class="subtitle center">Learning made easy and sharable absolute free</p>
+                        <div class="cards">
+                            <div class="card center col m3 l3 s12 ">
+                                <div class="in">
+                                    <img src="https://s3.amazonaws.com/wordpress-cdn.eadbox.com/2017/10/18163127/card-treinar-colaboradores-light.png"
+                                        alt="nossa solução para vender cursos online" height="75px" width="75px" title="vender cursos online"/>
+                                    <p>CSE & IT</p>
+                                </div>
+                            </div>
+                            <div class="card center col m3 l3 s12">
+                                <div class="in">
+                                    <img src="https://image.flaticon.com/icons/svg/897/897066.svg"
+                                        alt="nossa solução para treinar colaboradores" height="75px" width="75px" title="treinar colaboradores"/>
+                                    <p>ECE & EEE</p>
+                                </div>
+                            </div>
+                            <div class="card center col m3 l3 s12">
+                                <div class="in">
+                                    <img src="https://image.flaticon.com/icons/svg/525/525703.svg"
+                                        class="ticket"
+                                        alt="nossa solução para promover eventos" height="75px" width="75px" title="promover eventos"/>
+                                    <p>CIVIL & MECH</p>
+                                </div>
+                            </div>
+                            <div class="card center col m3 l3 s12">
+                                <div class="in">
+                                    <img src="https://image.flaticon.com/icons/svg/1006/1006545.svg"
+                                        alt="gerar leads" height="75px" width="75px" title="gerar leads"/>
+                                    <p>Other Notes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="section">
+            <div class="row center">
+                <h3 class="light header">Showcase Your Projects </h3>
+                <p class="col s12 m8 offset-m2 caption">Checkout what people are creating with new technologies. Get inspired by these beautiful projects and you can even submit your own projects to be showcased here.</p>
+                <a href="projects.php" class="btn-large waves-effect #64b5f6 blue lighten-2 waves-light">Explore our Showcase</a>
+            </div>
+            </div></main>
     
-			$res = mysqli_query($conn, $sql);
-			if($res){
-                echo ' <div class="card-panel">
-    <span class="blue-text text-darken-2">Successfully Added</span>
-  </div>'
-;
-                 
-            }
-    else{
-			echo '<div class="card-panel">
-    <span class="red-text text-darken-2">Sorry Something Went Wrong</span>
-  </div>';
-		}
-   }  
-                            
-                            ?>
-                            <form method="post" action='index.php'>
-                                <div class="input-field col s12">
-                                    <input type="text" id="autocomplete-input" name='subjectname' class="autocomplete">
-                                    <label for="autocomplete-input">Subject Name</label>
-                                </div>
-                                   <div class="input-field col s12">
-                                
-                                    <input type="text" name="name" >
-                                    <label >Material name</label>
-                          
-                                </div>
-                                <div class="input-field col s12">
-                                    <select name="category">
-                                        <option value="" disabled selected>Category</option>
-                                        
-                                        <option value="1">CSE & IT</option>
-                                        <option value="2">ECE & EEE</option>
-                                        <option value="3">MECH & CIVIL </option>
-                                        <option value="4">Other </option>
-                                    </select>
-                                </div>
-                                <div class="input-field col s12">
-                               
-                                  <input  type='text' name="tags">
-                                </div>
-                                <div class="input-field col s12">
-                                
-                                    <input type="text" name="url" >
-                                    <label >URL</label>
-                          
-                                </div>
-                                <div class=" center input-field col s12">
-                                    <input type="submit" href="#modal1" class="btn">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <?php
-require_once('connect.php'); 
-$sql = "SELECT * FROM `uploads` " ;
-$res = mysqli_query($conn, $sql);
-?>
-                <div id="highlight" class="section scrollspy">
-                    <h6 class="header center">Materials List </h6>
-                    <div class="row">
-                        <div class="col s12">
-                            <table class="highlight stripped">
-                                <thead>
-                                    <tr>
-                                        <th>Url</th>
-                                       
-                                        <th>name</th>
-                                         <th>Subject</th>
-                                        <th>category</th>
-                                        <th>tags</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php     while ($r = mysqli_fetch_assoc($res)) { ?>
-                                    <tr>
-                                        <td><?php echo $r['url']; ?></td>
-                                        <td><?php echo $r['name']; ?></td>
-                                        <td><?php echo $r['subjectname']; ?></td>
-                                        <td><?php echo $r['category']; ?></td>
-                                        <td><?php echo $r['tags']; ?></td>
-                                        <td><a href="/epatashala/deleteupload.php?id=<?php echo $r['url']; ?>">Delete</a></td>
-                                    </tr><?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
         <footer class="page-footer docs-footer">
             <div class="container">
                 <div class="row" style="margin-bottom: 0;">
-                    <div class="col s12 m10 offset-m1">
+                    <div class="col s7 m10 offset-m1">
                         <div class="row">
                             <div class="footer-copyright">
                                 © 2019-
                                 <noscript>2020</noscript>
                                 <script type="text/javascript">document.write(new Date().getFullYear());</script> epatashala, All rights reserved.
-                                <!--  <a class="grey-text text-darken-1 right" href="https://github.com/Dogfalo/materialize/blob/master/LICENSE">MIT License</a>--->
+
+                                
                             </div>
+
                         </div>
+                    </div>
+                    <div class="col s5 m1">
+                    <iframe src="https://www.powr.io/plugins/hit-counter/view?unique_label=899ff642_1543115625&external_type=material" width="100%" height="600" frameborder="0"></iframe>
                     </div>
                 </div>
             </div>
@@ -209,28 +152,15 @@ $res = mysqli_query($conn, $sql);
         <script src="js/search.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/init.js"></script>
-        <script>
-            $(document).ready(function(){
-            $('input.autocomplete').autocomplete({
-            data: {
-            "Environmental Studies": null,
-            "Computer Programming": null,
-            "Physics": 'https://placehold.it/250x250'
-            },
-            });
-            });
-
-            
-        </script>
         <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
             <a class="btn-floating btn-large #696B77">
             <i class="material-icons right">view_agenda</i>
             </a>
             <ul>
-                <li><a class="btn-floating #ffb300 amber darken-1" href="projects.html"><i class="material-icons right">screen_share</i></a></li>
-                <li><a class="btn-floating blue darken-1" href="telegram.html"><i class="material-icons right">send</i></a></li>
-                <li><a class="btn-floating #1de9b6 teal accent-3" href="pdfs.html"><i class="material-icons right">library_books</i></a></li>
-                <li><a class="btn-floating green darken-1" href="whatsapp.html"><i class="fa fa-whatsapp" style="font-size:48px;"></i></a></li>
+                <li><a class="btn-floating #512da8 deep-purple darken-2" href="materials.php"><i class="material-icons right">school</i></a></li>
+                <li><a class="btn-floating blue darken-1" href="contact.php"><i class="material-icons right">message</i></a></li>
+                <li><a class="btn-floating #c6ff00 lime accent-3" href="ideas.php"><i class="material-icons right">lightbulb_outline</i></a></li>
+                <li><a class="btn-floating green darken-1" href="collaboration.php"><i class="material-icons right">assignment_ind</i></a></li>
             </ul>
         </div>
     </body>

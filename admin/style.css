@@ -1,13 +1,5 @@
-            .text-primarycolor{color: #64b5f6 ;}
-            .back{ background-color: #64b5f6; }
-            .menu{
-            
-              padding: 20px;
-            }
-            .logout{
-              padding: 20px;
-           
-            }
+            .text-primarycolor{color:#039be5 ;}
+            .back{ background-color: #039be5 ; }
 body {
     background-color: white;
 }
