@@ -9,7 +9,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['username']);
     header("location: login.php");
 }
-?>
+?> 
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,35 +35,37 @@ if (isset($_GET['logout'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-           <main>
-        <ul id="nav-mobile" class="sidenav sidenav-fixed">
+                   <main>
+            <div class="container"><a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a></div>
+            <ul id="nav-mobile" class="sidenav sidenav-fixed">
                 <ul class="no-padding">
                     <li class="logo "><a id="logo-container" href="/" class="brand-logo">
                         <img src="../images/logo.png" height="75px" width="75px">
                         </a>
                     </li>
                     <li  class="version">
-                        Epatashala Admin Dashboard
+                        Epatashala
                     </li>
                 </ul>
-                <li class="search">
-                <h6 class="center text-white back menu"><b>Menu</b></h6>
+        <li class="search">
+                <h6 class="center text-white back menu">Menu</h6>
                 </li>
                 <li class="bold"><a href="index.php" class="waves-effect waves-teal">Materials</a></li>
                 <li class="bold"><a href="add-project.php" class="waves-effect waves-teal">Projects</a></li>
                 <li class="bold"><a href="add-idea.php" class="waves-effect waves-teal">Ideas</a></li>
-                <li class="bold"><a href="tech-bit.php" class="waves-effect waves-teal">Tech Bits</a></li>
+                <li class="bold"><a href="tech-bit.php" class="waves-effect waves-teal">Learn New Things</a></li>
                 <li class="bold"><a href="add-sheets.php" class="waves-effect waves-teal">Cheat Sheets</a></li>
                 <li class="bold"><a href="messages-list.php" class="waves-effect waves-teal">Messages</a></li>
                 
-                 <li class="bold"><a href="index.php?logout='1'" class="center logout text-white #00695c teal darken-3" ><b>logout</b></a></li>
-             
+                 <li class="bold"><a href="index.php?logout='1'" class="center logout text-white #00695c teal " ><b>logout</b></a></li>
+
             </ul>
-            </main>
+        </main>
         <main>
+            <div class="section no-pad-bot" id="index-banner">
             <div class="card-panel center">
                 <span class="green-text text-darken-2">Add Mateials</span>
-            </div>
+                </div>
             <div class="container ">
                 <div class="row hoverable">
                     <div class="col l8 s12 offset-l2">

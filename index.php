@@ -19,7 +19,7 @@
         <link href="css/icon.css" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+ 
     </head>
     <body>
          <main>
@@ -84,14 +84,14 @@
                             <div class="card center col m3 l3 s12 ">
                                 <div class="in">
                                     <img src="https://s3.amazonaws.com/wordpress-cdn.eadbox.com/2017/10/18163127/card-treinar-colaboradores-light.png"
-                                        alt="nossa solução para vender cursos online" height="75px" width="75px" title="vender cursos online"/>
+                                       height="75px" width="75px" title="vender cursos online"/>
                                     <p>CSE & IT</p>
                                 </div>
                             </div>
                             <div class="card center col m3 l3 s12">
                                 <div class="in">
                                     <img src="https://image.flaticon.com/icons/svg/897/897066.svg"
-                                        alt="nossa solução para treinar colaboradores" height="75px" width="75px" title="treinar colaboradores"/>
+                                         height="75px" width="75px" title="treinar colaboradores"/>
                                     <p>ECE & EEE</p>
                                 </div>
                             </div>
@@ -99,14 +99,14 @@
                                 <div class="in">
                                     <img src="https://image.flaticon.com/icons/svg/525/525703.svg"
                                         class="ticket"
-                                        alt="nossa solução para promover eventos" height="75px" width="75px" title="promover eventos"/>
+                                        height="75px" width="75px" title="promover eventos"/>
                                     <p>CIVIL & MECH</p>
                                 </div>
                             </div>
                             <div class="card center col m3 l3 s12">
                                 <div class="in">
                                     <img src="https://image.flaticon.com/icons/svg/1006/1006545.svg"
-                                        alt="gerar leads" height="75px" width="75px" title="gerar leads"/>
+                                        height="75px" width="75px" title="gerar leads"/>
                                     <p>Other Notes</p>
                                 </div>
                             </div>
